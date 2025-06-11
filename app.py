@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from datetime import datetime, timedelta
 import sqlite3
 
 app = Flask(__name__)
+CORS(app)  # 👈 Allow cross-origin requests from your GitHub Pages frontend
 DB = "database.db"
 
 def init_db():
@@ -47,3 +49,4 @@ def reports():
 if __name__ == "__main__":
     init_db()
     app.run(host="0.0.0.0", port=10000)
+
