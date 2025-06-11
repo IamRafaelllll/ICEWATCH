@@ -15,6 +15,10 @@ def init_db():
             timestamp TEXT
         )''')
 
+@app.route("/")
+def home():
+    return "ICE Watch backend is running. Use /submit (POST) and /reports (GET)."
+
 @app.route("/submit", methods=["POST"])
 def submit():
     data = request.get_json()
